@@ -1,0 +1,10 @@
+{% if users|length > 0 %}
+    <h2>Members</h2>
+    <ul>
+        {% for user in users %}
+            <li>{{ user.name }} email is "{{ user.email }}"</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <h2>No members</h2>
+{% endif %}
