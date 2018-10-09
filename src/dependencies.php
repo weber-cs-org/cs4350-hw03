@@ -1,11 +1,11 @@
 <?php
 /**
  * DIC configuration
- */ 
+ */
 
 $container = $app->getContainer();
 
-// view 
+// view
 $container['view'] = function ($c) {
     $settings = $c->get('settings');
     $view = new \Slim\Views\Twig($settings['view']['template_path'], $settings['view']['twig']);
@@ -48,10 +48,3 @@ $container[App\Actions\UserTestAction::class] = function ($c) {
     return new \App\Actions\UserTestAction($c->get('view'), $c->get('logger'), $c->get('users_test'));
 };
 
-$container[App\Actions\LoginAction::class] = function ($c) {
-    return new \App\Actions\LoginAction($c->get('view'), $c->get('logger'), [""]);
-};
-
-$container[App\Actions\ProfileAction::class] = function ($c) {
-    return new \App\Actions\ProfileAction($c->get('view'), $c->get('logger'), $c->get('users'));
-};
